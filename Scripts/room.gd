@@ -1,20 +1,19 @@
-class_name Room extends Node2D
+class_name Room 
+extends Node2D
 
 
 var room_number: int
 
-var doors: Dictionary = {"North": null, "South": null, "East": null, "West": null}
 
-
-func room_generator():
-	pass
-
-func enemy_spawner():
-	pass
+func randomize_openings():
+	
+	for opening: Opening in $Openings.get_children():
+		
+		var rand_state = randi_range(0, 4)
+		
+		opening.current_state = rand_state
 
 
 func _ready():
-	pass
-
-func _process(delta):
-	pass
+	randomize_openings()
+	$RoomNumber.text = str(room_number)

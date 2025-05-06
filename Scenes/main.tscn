@@ -1,7 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://buwebnvs156bp"]
+[gd_scene load_steps=3 format=3 uid="uid://buwebnvs156bp"]
 
 [ext_resource type="PackedScene" uid="uid://n3wbn6cotiog" path="res://Scenes/dungeon.tscn" id="1_42qew"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mp81"]
+bg_color = Color(0.387546, 0.227181, 0.0580217, 1)
 
 [node name="Main" type="Node2D"]
 
 [node name="Dungeon" parent="." instance=ExtResource("1_42qew")]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1585.0
+offset_top = 600.0
+offset_right = 1799.0
+offset_bottom = 664.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_8mp81")
+text = "Generate"
+
+[connection signal="pressed" from="Button" to="Dungeon" method="next_room"]
