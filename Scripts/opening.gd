@@ -1,14 +1,10 @@
 class_name Opening 
-extends Node2D
+extends StaticBody2D
 
 
 @export var current_state: State = State.WALL
 @export var current_direction: Direction
 
-@export var to_room_number: int :
-	set(value):
-		if value < Dungeon.ROOM_AMOUNT:
-			to_room_number = value - 1
 
 var to_room: Dictionary = {"room": null, "opening": null}
 
@@ -21,10 +17,10 @@ enum State {
 }
 
 enum Direction {
-	EAST,
-	SOUTH,
-	NORTH,
-	WEST
+	EAST = 0,
+	SOUTH = 1,
+	NORTH = 2,
+	WEST = 3
 }
 
 
@@ -45,7 +41,8 @@ func connect_to_room(room: Room):
 			to_room = {"room": room, "opening": Direction.WEST}
 
 
-func _ready():
+
+func _process(delta: float):
 	
 	match current_state:
 		
@@ -60,3 +57,9 @@ func _ready():
 		
 		State.OPEN:
 			self.hide()
+
+
+func _on_area_body_entered(body):
+	if current_state == State.OPEN:
+		body.hide()
+		print_debug(current_state)

@@ -1,16 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://buwebnvs156bp"]
+[gd_scene load_steps=3 format=3 uid="uid://c4ntomqd67u3o"]
 
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://n3wbn6cotiog" path="res://Scenes/dungeon.tscn" id="1_42qew"]
-
-[node name="Main" type="Node2D"]
-
-[node name="Dungeon" parent="." instance=ExtResource("1_42qew")]
-=======
-[ext_resource type="PackedScene" uid="uid://brkumsxn8bdnr" path="res://Scenes/player.tscn" id="1_c7puv"]
+[ext_resource type="PackedScene" uid="uid://n3wbn6cotiog" path="res://Scenes/dungeon.tscn" id="1_8k4si"]
+[ext_resource type="PackedScene" uid="uid://q42i6uhauupq" path="res://Scenes/player.tscn" id="2_ona3g"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_c7puv")]
-position = Vector2(152, 99)
->>>>>>> c09092932845c26354eaa710f258438daec53ae0
+[node name="Dungeon" parent="." instance=ExtResource("1_8k4si")]
+
+[node name="Player" parent="." instance=ExtResource("2_ona3g")]
+position = Vector2(772, 374)
